@@ -8,7 +8,7 @@ from keras.models import Sequential
 from keras.layers import LSTM, Dense, Dropout, Masking, Embedding
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 
-with open(r'C:\Users\Vitaly\Documents\text.txt') as f:
+with open(r'text.txt') as f:
     lines = f.read().splitlines()
     
 tokenizer = Tokenizer(num_words=None,
@@ -73,7 +73,7 @@ mode.add(Dense(num_words, activation='softmax'))
 model.compile(
     optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
-glove_vectors = r'C:\Users\Vitaly\Documents\glove.6B.100d.txt'
+glove_vectors = r'glove.6B.100d.txt'
 glove = np.loadtxt(glove_vectors, dtype='str', comments=None)
 
 vectors = glove[:, 1:].astype('float')
